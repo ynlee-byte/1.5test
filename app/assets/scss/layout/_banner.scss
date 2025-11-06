@@ -58,11 +58,11 @@
     position: absolute;
     z-index: 2;
     bottom: 0px;
-    right: 0px;
+    right: 40px;
 
     img {
-      max-width: 34vw;
-      min-width: 120px;
+      max-width: 22.44vw;
+      min-width: 79.2px;
       animation: move 1s linear infinite alternate-reverse;
     }
   }

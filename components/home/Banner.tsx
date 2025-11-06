@@ -1,12 +1,12 @@
 "use client";
-import one from "@/public/02.png";
-import two from "@/public/05.png";
+import one from "@/public/06.png";
+import two from "@/public/21.png";
 import three from "@/public/06-1.png";
-import four from "@/public/04.png";
-import five from "@/public/14.png";
-import bannerThumb from "@/public/ChatGPT Image 2025년 11월 6일 오후 12_23_55.png";
+import four from "@/public/25.png";
+import five from "@/public/19.png";
+import bannerThumb from "@/public/00-1.png";
 import sword from "@/public/images/banner/sword.png";
-import bannerBg from "@/public/17.png";
+import bannerBg from "@/public/18.png";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
