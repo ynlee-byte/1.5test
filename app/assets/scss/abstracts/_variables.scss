@@ -6,8 +6,15 @@
 // @import url("https://fonts.googleapis.com/css2?family=Khula:wght@300;400;600;700;800&display=swap");
 
 :root {
+  // fonts
+  --khula: 'HS-Regular', sans-serif;
+  --sbaggro: 'SBAggroB', sans-serif;
+  --sbaggro-medium: 'SBAggroM', sans-serif;
+  --nexon: 'NexonLv2Gothic', sans-serif;
+  --dnfbitbit: 'DNFBitBitv2', sans-serif;
+
   // template default
-  --template-font: var(--khula);
+  --template-font: var(--nexon);
   --template-bg: #0c0f14;
   --template-color: #ffffff;
 

@@ -15,14 +15,14 @@ const Feature = () => {
         <div className="row align-items-center vertical-column-gap">
           <div className="col-12 col-lg-6">
             <div className="text-center text-lg-start">
-              <h2 className="fw-6 title-animation mt-8">Featured Games</h2>
+              <h2 className="fw-6 title-animation mt-8">주요 프로젝트</h2>
             </div>
           </div>
           <div className="col-12 col-lg-6">
             <div className="text-center text-lg-end">
               <div className="btn-wrapper">
                 <Link href="games" className="btn--secondary">
-                  View All
+                  전체보기
                 </Link>
                 <svg viewBox="0 0 100 102" xmlns="http://www.w3.org/2000/svg" fill="none" preserveAspectRatio="none" className="shape">
                   <path d="M0 1  L100 1  L100 55 L80 101 L0 101 Z" />
@@ -83,7 +83,7 @@ const Feature = () => {
                         <div className="content-inner">
                           <p className="text-md fw-6 mt-8">
                             <span>[ 01 ]</span>
-                            Featured Games
+                            주요 프로젝트
                           </p>
                           <h3 className="fw-7 mt-16">
                             <Link href="/games/1">Vortex</Link>
@@ -91,7 +91,7 @@ const Feature = () => {
                         </div>
                         <div className="cta mt-50 text-end">
                           <Link href="/games/1" className="fw-7">
-                            More Info <i className="ti ti-plus"></i>
+                            자세히 보기 <i className="ti ti-plus"></i>
                           </Link>
                         </div>
                       </div>
@@ -112,7 +112,7 @@ const Feature = () => {
                         <div className="content-inner">
                           <p className="text-md fw-6 mt-8">
                             <span>[ 02 ]</span>
-                            Featured Games
+                            주요 프로젝트
                           </p>
                           <h3 className="fw-7 mt-16">
                             <Link href="/games/1">Fortnite</Link>
@@ -120,7 +120,7 @@ const Feature = () => {
                         </div>
                         <div className="cta mt-50 text-end">
                           <Link href="/games/1" className="fw-7">
-                            More Info <i className="ti ti-plus"></i>
+                            자세히 보기 <i className="ti ti-plus"></i>
                           </Link>
                         </div>
                       </div>
@@ -141,7 +141,7 @@ const Feature = () => {
                         <div className="content-inner">
                           <p className="text-md fw-6 mt-8">
                             <span>[ 03 ]</span>
-                            Featured Games
+                            주요 프로젝트
                           </p>
                           <h3 className="fw-7 mt-16">
                             <Link href="/games/1">Bounty</Link>
@@ -149,7 +149,7 @@ const Feature = () => {
                         </div>
                         <div className="cta mt-50 text-end">
                           <Link href="/games/1" className="fw-7">
-                            More Info <i className="ti ti-plus"></i>
+                            자세히 보기 <i className="ti ti-plus"></i>
                           </Link>
                         </div>
                       </div>
@@ -170,7 +170,7 @@ const Feature = () => {
                         <div className="content-inner">
                           <p className="text-md fw-6 mt-8">
                             <span>[ 04 ]</span>
-                            Featured Games
+                            주요 프로젝트
                           </p>
                           <h3 className="fw-7 mt-16">
                             <Link href="/games/1">Turbo</Link>
@@ -178,7 +178,7 @@ const Feature = () => {
                         </div>
                         <div className="cta mt-50 text-end">
                           <Link href="/games/1" className="fw-7">
-                            More Info <i className="ti ti-plus"></i>
+                            자세히 보기 <i className="ti ti-plus"></i>
                           </Link>
                         </div>
                       </div>
@@ -199,7 +199,7 @@ const Feature = () => {
                         <div className="content-inner">
                           <p className="text-md fw-6 mt-8">
                             <span>[ 05 ]</span>
-                            Featured Games
+                            주요 프로젝트
                           </p>
                           <h3 className="fw-7 mt-16">
                             <Link href="/games/1">Vortex</Link>
@@ -207,7 +207,7 @@ const Feature = () => {
                         </div>
                         <div className="cta mt-50 text-end">
                           <Link href="/games/1" className="fw-7">
-                            More Info <i className="ti ti-plus"></i>
+                            자세히 보기 <i className="ti ti-plus"></i>
                           </Link>
                         </div>
                       </div>
@@ -228,7 +228,7 @@ const Feature = () => {
                         <div className="content-inner">
                           <p className="text-md fw-6 mt-8">
                             <span>[ 06 ]</span>
-                            Featured Games
+                            주요 프로젝트
                           </p>
                           <h3 className="fw-7 mt-16">
                             <Link href="/games/1">Fortnite</Link>
@@ -236,7 +236,7 @@ const Feature = () => {
                         </div>
                         <div className="cta mt-50 text-end">
                           <Link href="/games/1" className="fw-7">
-                            More Info <i className="ti ti-plus"></i>
+                            자세히 보기 <i className="ti ti-plus"></i>
                           </Link>
                         </div>
                       </div>
@@ -257,7 +257,7 @@ const Feature = () => {
                         <div className="content-inner">
                           <p className="text-md fw-6 mt-8">
                             <span>[ 07 ]</span>
-                            Featured Games
+                            주요 프로젝트
                           </p>
                           <h3 className="fw-7 mt-16">
                             <Link href="/games/1">Bounty</Link>
@@ -265,7 +265,7 @@ const Feature = () => {
                         </div>
                         <div className="cta mt-50 text-end">
                           <Link href="/games/1" className="fw-7">
-                            More Info <i className="ti ti-plus"></i>
+                            자세히 보기 <i className="ti ti-plus"></i>
                           </Link>
                         </div>
                       </div>
@@ -286,7 +286,7 @@ const Feature = () => {
                         <div className="content-inner">
                           <p className="text-md fw-6 mt-8">
                             <span>[ 08 ]</span>
-                            Featured Games
+                            주요 프로젝트
                           </p>
                           <h3 className="fw-7 mt-16">
                             <Link href="/games/1">Turbo</Link>
@@ -294,7 +294,7 @@ const Feature = () => {
                         </div>
                         <div className="cta mt-50 text-end">
                           <Link href="/games/1" className="fw-7">
-                            More Info <i className="ti ti-plus"></i>
+                            자세히 보기 <i className="ti ti-plus"></i>
                           </Link>
                         </div>
                       </div>

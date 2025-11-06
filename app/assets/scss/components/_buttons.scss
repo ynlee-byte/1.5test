@@ -5,7 +5,8 @@
 // primary button
 .btn--primary {
   padding: 16px 24px;
-  font-weight: 600;
+  font-weight: 400;
+  font-family: var(--sbaggro-medium);
   background-color: var(--tertiary-color);
   color: var(--white);
   position: relative;
@@ -87,6 +88,7 @@
 .btn--secondary {
   padding: 14px 30px 12px;
   font-weight: 700;
+  font-family: var(--sbaggro-medium);
   background-color: var(--quaternary-color);
   color: var(--septenary-color);
   position: relative;
@@ -134,6 +136,7 @@
 .btn--tertiary {
   padding: 20px 24px;
   font-weight: 600;
+  font-family: var(--sbaggro-medium);
   background-color: #141a23;
   color: #ffffff70;
   position: relative;

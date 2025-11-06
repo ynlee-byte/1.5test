@@ -128,7 +128,7 @@ const TrendingGames = () => {
           <div className="col-12 col-lg-6">
             <div className="text-center text-lg-start">
               <h2 className="fw-6 title-animation mt-8">
-                Trending NFT <Image src={fire} alt="Image" />{" "}
+                인기 포트폴리오 <Image src={fire} alt="Image" />{" "}
               </h2>
             </div>
           </div>
@@ -136,7 +136,7 @@ const TrendingGames = () => {
             <div className="text-center text-lg-end">
               <div className="btn-wrapper">
                 <Link href="/shop" className="btn--secondary">
-                  View All
+                  전체보기
                 </Link>
                 <svg viewBox="0 0 100 102" xmlns="http://www.w3.org/2000/svg" fill="none" preserveAspectRatio="none" className="shape">
                   <path d="M0 1  L100 1  L100 55 L80 101 L0 101 Z" />
@@ -177,7 +177,7 @@ const TrendingGames = () => {
                             </Link>
                           </div>
                           <div className="author-title">
-                            <p className="text-uppercase text-xs fw-6">CREATOR</p>
+                            <p className="text-uppercase text-xs fw-6">제작자</p>
                           </div>
                         </div>
                         <div className="price-footer">
@@ -186,7 +186,7 @@ const TrendingGames = () => {
                               {game.price} <span className="currency">ETH</span>
                             </p>
                             <Link href="/shop/1" className="btn--primary text-sm">
-                              Bid
+                              입찰하기
                               <i className="ti ti-arrow-narrow-right"></i>
                             </Link>
                             <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none" preserveAspectRatio="none" className="cmn-shape">

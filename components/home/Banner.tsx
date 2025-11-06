@@ -54,11 +54,11 @@ const Banner = () => {
                   <li className="breadcrumb-item active">Win</li>
                 </ol>
                 <h1 className="title-animation title-xxl stroked-text fw-8 transform-none mt-8">Play & Earn</h1>
-                <p className="text-xl mt-6">Elevate Your Gaming Experience with our NFTG and Level Up Nexus.</p>
+                <p className="text-xl mt-6">창의적인 기획과 전략으로 여러분의 아이디어를 현실로 만들어드립니다. 함께 성장하는 파트너가 되겠습니다.</p>
                 <div className="section__cta mt-40">
                   <div className="btn-wrapper">
                     <Link href="/games" className="btn--secondary">
-                      Play Now
+                      프로젝트 시작하기
                     </Link>
                     <svg viewBox="0 0 100 102" xmlns="http://www.w3.org/2000/svg" fill="none" preserveAspectRatio="none" className="shape">
                       <path d="M0 1  L100 1  L100 55 L80 101 L0 101 Z" />
@@ -108,7 +108,7 @@ const Banner = () => {
                       </Link>
                     </div>
                     <div className="content text-center">
-                      <h2 className="fw-8 stroked-text" style={{ fontFamily: 'Pretendard, -apple-system, sans-serif', textTransform: 'none' }}>
+                      <h2 className="fw-8 stroked-text" style={{ fontFamily: 'NexonLv2Gothic, sans-serif', textTransform: 'none' }}>
                         <Link href="/games/2">기획 정리</Link>
                       </h2>
                     </div>
@@ -122,7 +122,7 @@ const Banner = () => {
                       </Link>
                     </div>
                     <div className="content text-center">
-                      <h2 className="fw-8 stroked-text" style={{ fontFamily: 'Pretendard, -apple-system, sans-serif', textTransform: 'none' }}>
+                      <h2 className="fw-8 stroked-text" style={{ fontFamily: 'NexonLv2Gothic, sans-serif', textTransform: 'none' }}>
                         <Link href="/games/2">콘텐츠 발행</Link>
                       </h2>
                     </div>
@@ -136,7 +136,7 @@ const Banner = () => {
                       </Link>
                     </div>
                     <div className="content text-center">
-                      <h2 className="fw-8 stroked-text" style={{ fontFamily: 'Pretendard, -apple-system, sans-serif', textTransform: 'none' }}>
+                      <h2 className="fw-8 stroked-text" style={{ fontFamily: 'NexonLv2Gothic, sans-serif', textTransform: 'none' }}>
                         <Link href="/games/2">외부 기업 투고</Link>
                       </h2>
                     </div>
@@ -150,7 +150,7 @@ const Banner = () => {
                       </Link>
                     </div>
                     <div className="content text-center">
-                      <h2 className="fw-8 stroked-text" style={{ fontFamily: 'Pretendard, -apple-system, sans-serif', textTransform: 'none' }}>
+                      <h2 className="fw-8 stroked-text" style={{ fontFamily: 'NexonLv2Gothic, sans-serif', textTransform: 'none' }}>
                         <Link href="/games/2">협업 경험</Link>
                       </h2>
                     </div>
@@ -164,7 +164,7 @@ const Banner = () => {
                       </Link>
                     </div>
                     <div className="content text-center">
-                      <h2 className="fw-8 stroked-text" style={{ fontFamily: 'Pretendard, -apple-system, sans-serif', textTransform: 'none' }}>
+                      <h2 className="fw-8 stroked-text" style={{ fontFamily: 'NexonLv2Gothic, sans-serif', textTransform: 'none' }}>
                         <Link href="/games/2">구체적인 피드백</Link>
                       </h2>
                     </div>

@@ -14,25 +14,25 @@ const platformFeatures = [
   {
     id: "01",
     image: one,
-    title: "Create Live Streams",
-    description: "Embark on immersive gaming adventures with our live streams—where every moment is shared, and excitement in real-time.",
-    buttonText: "Create Now",
+    title: "콘텐츠 제작 및 발행",
+    description: "브랜드의 가치를 전달하는 창의적인 콘텐츠를 기획하고 제작합니다. 타겟 고객에게 효과적으로 메시지를 전달하는 맞춤형 솔루션을 제공합니다.",
+    buttonText: "시작하기",
     buttonLink: "/sign-up",
   },
   {
     id: "02",
     image: two,
-    title: "Host Tournaments",
-    description: "Be the mastermind behind thrilling competitions. Host epic gaming tournaments and witness champions emerge arena in real-time!",
-    buttonText: "Host Now",
+    title: "프로젝트 관리 및 운영",
+    description: "체계적인 프로젝트 관리로 성공적인 결과물을 만들어냅니다. 기획부터 실행까지 모든 과정을 투명하게 관리하고 최적의 성과를 도출합니다.",
+    buttonText: "문의하기",
     buttonLink: "/sign-up",
   },
   {
     id: "03",
     image: three,
-    title: "Publish & Sell NFTs",
-    description: "Create, Publish, and Sell Exclusive NFTs: Unleash Your Digital Artistic Vision to a Global Audience Today! Global real-time Audience!",
-    buttonText: "Sell Now",
+    title: "브랜딩 및 마케팅",
+    description: "데이터 기반의 전략적 마케팅으로 브랜드 가치를 극대화합니다. 창의적인 아이디어와 실행력으로 시장에서의 경쟁력을 강화합니다.",
+    buttonText: "상담하기",
     buttonLink: "/sign-up",
   },
 ];
@@ -70,14 +70,14 @@ const Platform = () => {
         <div className="row align-items-center vertical-column-gap">
           <div className="col-12 col-lg-7">
             <div className="text-center text-lg-start">
-              <h2 className="fw-6 title-animation mt-8">Global Platfrom Features</h2>
+              <h2 className="fw-6 title-animation mt-8">주요 서비스</h2>
             </div>
           </div>
           <div className="col-12 col-lg-5">
             <div className="text-center text-lg-end">
               <div className="btn-wrapper">
                 <Link href="/sign-up" className="btn--secondary">
-                  Join Now
+                  참여하기
                 </Link>
                 <svg viewBox="0 0 100 102" xmlns="http://www.w3.org/2000/svg" fill="none" preserveAspectRatio="none" className="shape">
                   <path d="M0 1  L100 1  L100 55 L80 101 L0 101 Z" />
