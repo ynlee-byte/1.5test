@@ -6,7 +6,6 @@ import four from "@/public/25.png";
 import five from "@/public/19.png";
 import bannerThumb from "@/public/00-1.png";
 import sword from "@/public/images/banner/sword.png";
-import bannerBg from "@/public/18.png";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
