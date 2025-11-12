@@ -1,46 +1,81 @@
 "use client";
-import one from "@/public/06.png";
-import two from "@/public/21.png";
-import three from "@/public/06-1.png";
-import four from "@/public/25.png";
-import five from "@/public/19.png";
-import bannerThumb from "@/public/00-1.png";
+import bannerThumb from "@/public/optimized/00-1.webp";
 import sword from "@/public/images/banner/sword.png";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
+import avatar1 from "@/public/img/avatar1.png";
+import avatar2 from "@/public/img/avatar2.png";
+import avatar3 from "@/public/img/avatar3.png";
 import Image from "next/image";
 import Link from "next/link";
-import { Autoplay, EffectCoverflow, Pagination } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
+import React from "react";
+import Tilt from "react-parallax-tilt";
 
-gsap.registerPlugin(ScrollTrigger);
-const Banner = () => {
-  useGSAP(() => {
-    const device_width = window.innerWidth;
-    if (device_width >= 768) {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".banner",
-          start: "top top",
-          end: "+=40%",
-          scrub: 1,
-          pin: false,
-        },
-      });
-      tl.to(".sword img", {
-        y: "180px",
-        opacity: 0.4,
-        duration: 3,
-      });
-      tl.to(".banner__thumb img", {
-        transform: "scale(0.7)",
-        y: "100px",
-        opacity: 0.4,
-        duration: 3,
-      });
-    }
+// 배너 슬라이드 5개로 축소 (성능 최적화)
+const generateBannerSlides = () => {
+  const slides = [];
+  const titles = ["기획 정리", "콘텐츠 발행", "외부 기업 투고", "협업 경험", "구체적인 피드백"];
+  const imageIndices = [6, 19, 21, 25, 4]; // 미리 선택된 이미지
+
+  imageIndices.forEach((idx, i) => {
+    const imageNum = String(idx).padStart(2, '0');
+    slides.push({
+      id: i + 1,
+      imagePath: `/optimized/${imageNum}.webp`,
+      title: titles[i],
+    });
   });
+  return slides;
+};
+
+const bannerSlides = generateBannerSlides();
+
+const winners = [
+  {
+    id: 1,
+    name: "Cristofer Dorwart",
+    img: avatar1,
+    prizeMoney: 350,
+  },
+  {
+    id: 2,
+    name: "Luna Evergreen",
+    img: avatar2,
+    prizeMoney: 250,
+  },
+  {
+    id: 3,
+    name: "Lucas Thornfield",
+    img: avatar3,
+    prizeMoney: 150,
+  },
+];
+
+const Banner = () => {
+  // GSAP 애니메이션 비활성화 - 성능 최적화
+  // useGSAP(() => {
+  //   const device_width = window.innerWidth;
+  //   if (device_width >= 768) {
+  //     const tl = gsap.timeline({
+  //       scrollTrigger: {
+  //         trigger: ".banner",
+  //         start: "top top",
+  //         end: "+=40%",
+  //         scrub: 1,
+  //         pin: false,
+  //       },
+  //     });
+  //     tl.to(".sword img", {
+  //       y: "180px",
+  //       opacity: 0.4,
+  //       duration: 3,
+  //     });
+  //     tl.to(".banner__thumb img", {
+  //       transform: "scale(0.7)",
+  //       y: "100px",
+  //       opacity: 0.4,
+  //       duration: 3,
+  //     });
+  //   }
+  // });
   return (
     <section className="banner">
       <div className="container-fluid">
@@ -70,108 +105,78 @@ const Banner = () => {
                 <Image src={sword} alt="Image" />
               </div>
               <div className="banner__thumb">
-                <Image src={bannerThumb} alt="Image" />
+                <Image
+                  src={bannerThumb}
+                  alt="Image"
+                  priority
+                  sizes="(max-width: 768px) 100vw, 60vw"
+                />
               </div>
             </div>
           </div>
           <div className="col-12 col-lg-4 col-xxl-3">
+            {/* Last Winners Card */}
+            <div className="hero-content" style={{ marginBottom: '20px' }}>
+              <Tilt
+                className="card-area py-lg-8 py-6 px-lg-6 px-3 rounded-5 tilt"
+                data-tilt>
+                <h3 className="tcn-1 dot-icon cursor-scale growDown mb-6 title-anim d-flex align-items-center gap-3">
+                  <span className="orange-dot" style={{
+                    width: '12px',
+                    height: '12px',
+                    borderRadius: '50%',
+                    background: 'rgb(246, 87, 30)',
+                    display: 'inline-block',
+                    flexShrink: 0
+                  }}></span>
+                  Last Winners
+                </h3>
+                <div className="hr-line" style={{ marginBottom: '30px' }}></div>
+                <div className="card-items">
+                  {winners.map(({ id, img, name, prizeMoney }) => (
+                    <React.Fragment key={id}>
+                      <div className="card-item">
+                        <div className="card-img-area rounded-circle overflow-hidden">
+                          <Image className="w-100" src={img} alt="profile" />
+                        </div>
+                        <div className="card-info">
+                          <h4 className="card-title fw-semibold tcn-1 mb-1 cursor-scale growDown2 title-anim">
+                            {name}
+                          </h4>
+                          <p className="card-text tcs-1 fw-medium mb-0">
+                            +${prizeMoney}
+                          </p>
+                        </div>
+                      </div>
+                      {id !== 3 && <div className="hr-line"></div>}
+                    </React.Fragment>
+                  ))}
+                </div>
+              </Tilt>
+            </div>
             <div className="banner__slider">
-              <Swiper
-                loop={true}
-                speed={1000}
-                autoplay={{
-                  delay: 5000,
-                  disableOnInteraction: false,
-                }}
-                pagination={{
-                  el: ".banner-pagination",
-                  clickable: true,
-                }}
-                effect="creative"
-                modules={[Autoplay, EffectCoverflow, Pagination]}
-                creativeEffect={{
-                  prev: {
-                    shadow: true,
-                    translate: ["-40%", 0, -1],
-                  },
-                  next: {
-                    translate: ["100%", 0, 0],
-                  },
-                }}
-                className="banner__slider-wrapper swiper"
-              >
-                <SwiperSlide className="swiper-slide">
-                  <div className="banner__slider-single">
-                    <div className="thumb">
-                      <Link href="/games/2">
-                        <Image src={one} alt="Image" />
-                      </Link>
-                    </div>
-                    <div className="content text-center">
-                      <h2 className="fw-8 stroked-text" style={{ fontFamily: 'NexonLv2Gothic, sans-serif', textTransform: 'none' }}>
-                        <Link href="/games/2">기획 정리</Link>
-                      </h2>
-                    </div>
+              <div className="banner__slider-wrapper">
+                {/* 슬라이더 대신 첫 번째 이미지만 표시 - 성능 최적화 */}
+                <div className="banner__slider-single">
+                  <div className="thumb">
+                    <Link href="/games/2">
+                      <Image
+                        src={bannerSlides[0].imagePath}
+                        alt="Image"
+                        width={400}
+                        height={500}
+                        priority
+                        sizes="(max-width: 768px) 100vw, 400px"
+                      />
+                    </Link>
                   </div>
-                </SwiperSlide>
-                <SwiperSlide className="swiper-slide">
-                  <div className="banner__slider-single">
-                    <div className="thumb">
-                      <Link href="/games/2">
-                        <Image src={two} alt="Image" />
-                      </Link>
-                    </div>
-                    <div className="content text-center">
-                      <h2 className="fw-8 stroked-text" style={{ fontFamily: 'NexonLv2Gothic, sans-serif', textTransform: 'none' }}>
-                        <Link href="/games/2">콘텐츠 발행</Link>
-                      </h2>
-                    </div>
+                  <div className="content text-center">
+                    <h2 className="fw-8 stroked-text" style={{ fontFamily: 'NexonLv2Gothic, sans-serif', textTransform: 'none' }}>
+                      <Link href="/games/2">{bannerSlides[0].title}</Link>
+                    </h2>
                   </div>
-                </SwiperSlide>
-                <SwiperSlide className="swiper-slide">
-                  <div className="banner__slider-single">
-                    <div className="thumb">
-                      <Link href="/games/2">
-                        <Image src={three} alt="Image" />
-                      </Link>
-                    </div>
-                    <div className="content text-center">
-                      <h2 className="fw-8 stroked-text" style={{ fontFamily: 'NexonLv2Gothic, sans-serif', textTransform: 'none' }}>
-                        <Link href="/games/2">외부 기업 투고</Link>
-                      </h2>
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide className="swiper-slide">
-                  <div className="banner__slider-single">
-                    <div className="thumb">
-                      <Link href="/games/2">
-                        <Image src={four} alt="Image" />
-                      </Link>
-                    </div>
-                    <div className="content text-center">
-                      <h2 className="fw-8 stroked-text" style={{ fontFamily: 'NexonLv2Gothic, sans-serif', textTransform: 'none' }}>
-                        <Link href="/games/2">협업 경험</Link>
-                      </h2>
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide className="swiper-slide">
-                  <div className="banner__slider-single">
-                    <div className="thumb">
-                      <Link href="/games/2">
-                        <Image src={five} alt="Image" />
-                      </Link>
-                    </div>
-                    <div className="content text-center">
-                      <h2 className="fw-8 stroked-text" style={{ fontFamily: 'NexonLv2Gothic, sans-serif', textTransform: 'none' }}>
-                        <Link href="/games/2">구체적인 피드백</Link>
-                      </h2>
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <div className="banner-pagination pagination-one"></div>
-              </Swiper>
+                </div>
+              </div>
             </div>
           </div>
         </div>

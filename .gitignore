@@ -36,3 +36,13 @@ yarn-error.log*
 next-env.d.ts
 
 .vercel
+
+# utility scripts
+check-image-sizes.js
+convert-to-webp.js
+crop-icons.js
+crop_images.py
+optimize-images.js
+restore-17.js
+restore-banner.js
+nul

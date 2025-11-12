@@ -14,7 +14,7 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url("/17.png");
+    background-image: url("/optimized/17.webp");
   }
 
   .breadcrumb {
@@ -57,12 +57,12 @@
   .banner__thumb {
     position: absolute;
     z-index: 2;
-    bottom: 0px;
+    bottom: 20px;
     right: 40px;
 
     img {
-      max-width: 22.44vw;
-      min-width: 79.2px;
+      max-width: 24.684vw;
+      min-width: 87.12px;
       animation: move 1s linear infinite alternate-reverse;
     }
   }

@@ -1,12 +1,26 @@
 "use client";
-import four from "@/public/images/games/featured/four.png";
-import one from "@/public/images/games/featured/one.png";
-import three from "@/public/images/games/featured/three.png";
-import two from "@/public/images/games/featured/two.png";
 import Image from "next/image";
 import Link from "next/link";
 import { Autoplay, FreeMode, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+
+// Feature 슬라이드 30개 생성
+const generateFeatureSlides = () => {
+  const slides = [];
+  for (let i = 1; i <= 30; i++) {
+    const imageNum = String(i % 26).padStart(2, '0');
+    slides.push({
+      id: i,
+      imagePath: `/optimized/${imageNum}.webp`,
+      title: `프로젝트 ${i}`,
+      number: `[ ${String(i).padStart(2, '0')} ]`,
+      count: 100 + i,
+    });
+  }
+  return slides;
+};
+
+const featureSlides = generateFeatureSlides();
 
 const Feature = () => {
   return (
@@ -68,238 +82,37 @@ const Feature = () => {
                   }}
                   className="feature-slider swiper"
                 >
-                  <SwiperSlide className="swiper-slide">
-                    <div className="feature-slider__single">
-                      <div className="thumb">
-                        <Link href="/games/1">
-                          <Image src={one} alt="Image" />
-                        </Link>
-                        <div className="price-tag">
-                          <i className="ti ti-circle-filled"></i>
-                          <span className="text-sm fw-7">122</span>
-                        </div>
-                      </div>
-                      <div className="content">
-                        <div className="content-inner">
-                          <p className="text-md fw-6 mt-8">
-                            <span>[ 01 ]</span>
-                            주요 프로젝트
-                          </p>
-                          <h3 className="fw-7 mt-16">
-                            <Link href="/games/1">Vortex</Link>
-                          </h3>
-                        </div>
-                        <div className="cta mt-50 text-end">
-                          <Link href="/games/1" className="fw-7">
-                            자세히 보기 <i className="ti ti-plus"></i>
+                  {featureSlides.map((slide) => (
+                    <SwiperSlide key={slide.id} className="swiper-slide">
+                      <div className="feature-slider__single">
+                        <div className="thumb">
+                          <Link href="/games/1">
+                            <Image src={slide.imagePath} alt="Image" width={400} height={500} />
                           </Link>
+                          <div className="price-tag">
+                            <i className="ti ti-circle-filled"></i>
+                            <span className="text-sm fw-7">{slide.count}</span>
+                          </div>
+                        </div>
+                        <div className="content">
+                          <div className="content-inner">
+                            <p className="text-md fw-6 mt-8">
+                              <span>{slide.number}</span>
+                              주요 프로젝트
+                            </p>
+                            <h3 className="fw-7 mt-16">
+                              <Link href="/games/1">{slide.title}</Link>
+                            </h3>
+                          </div>
+                          <div className="cta mt-50 text-end">
+                            <Link href="/games/1" className="fw-7">
+                              자세히 보기 <i className="ti ti-plus"></i>
+                            </Link>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide className="swiper-slide">
-                    <div className="feature-slider__single">
-                      <div className="thumb">
-                        <Link href="/games/1">
-                          <Image src={two} alt="Image" />
-                        </Link>
-                        <div className="price-tag">
-                          <i className="ti ti-circle-filled"></i>
-                          <span className="text-sm fw-7">422</span>
-                        </div>
-                      </div>
-                      <div className="content">
-                        <div className="content-inner">
-                          <p className="text-md fw-6 mt-8">
-                            <span>[ 02 ]</span>
-                            주요 프로젝트
-                          </p>
-                          <h3 className="fw-7 mt-16">
-                            <Link href="/games/1">Fortnite</Link>
-                          </h3>
-                        </div>
-                        <div className="cta mt-50 text-end">
-                          <Link href="/games/1" className="fw-7">
-                            자세히 보기 <i className="ti ti-plus"></i>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide className="swiper-slide">
-                    <div className="feature-slider__single">
-                      <div className="thumb">
-                        <Link href="/games/1">
-                          <Image src={three} alt="Image" />
-                        </Link>
-                        <div className="price-tag">
-                          <i className="ti ti-circle-filled"></i>
-                          <span className="text-sm fw-7">32</span>
-                        </div>
-                      </div>
-                      <div className="content">
-                        <div className="content-inner">
-                          <p className="text-md fw-6 mt-8">
-                            <span>[ 03 ]</span>
-                            주요 프로젝트
-                          </p>
-                          <h3 className="fw-7 mt-16">
-                            <Link href="/games/1">Bounty</Link>
-                          </h3>
-                        </div>
-                        <div className="cta mt-50 text-end">
-                          <Link href="/games/1" className="fw-7">
-                            자세히 보기 <i className="ti ti-plus"></i>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide className="swiper-slide">
-                    <div className="feature-slider__single">
-                      <div className="thumb">
-                        <Link href="/games/1">
-                          <Image src={four} alt="Image" />
-                        </Link>
-                        <div className="price-tag">
-                          <i className="ti ti-circle-filled"></i>
-                          <span className="text-sm fw-7">66</span>
-                        </div>
-                      </div>
-                      <div className="content">
-                        <div className="content-inner">
-                          <p className="text-md fw-6 mt-8">
-                            <span>[ 04 ]</span>
-                            주요 프로젝트
-                          </p>
-                          <h3 className="fw-7 mt-16">
-                            <Link href="/games/1">Turbo</Link>
-                          </h3>
-                        </div>
-                        <div className="cta mt-50 text-end">
-                          <Link href="/games/1" className="fw-7">
-                            자세히 보기 <i className="ti ti-plus"></i>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide className="swiper-slide">
-                    <div className="feature-slider__single">
-                      <div className="thumb">
-                        <Link href="/games/1">
-                          <Image src={one} alt="Image" />
-                        </Link>
-                        <div className="price-tag">
-                          <i className="ti ti-circle-filled"></i>
-                          <span className="text-sm fw-7">786</span>
-                        </div>
-                      </div>
-                      <div className="content">
-                        <div className="content-inner">
-                          <p className="text-md fw-6 mt-8">
-                            <span>[ 05 ]</span>
-                            주요 프로젝트
-                          </p>
-                          <h3 className="fw-7 mt-16">
-                            <Link href="/games/1">Vortex</Link>
-                          </h3>
-                        </div>
-                        <div className="cta mt-50 text-end">
-                          <Link href="/games/1" className="fw-7">
-                            자세히 보기 <i className="ti ti-plus"></i>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide className="swiper-slide">
-                    <div className="feature-slider__single">
-                      <div className="thumb">
-                        <Link href="/games/1">
-                          <Image src={two} alt="Image" />
-                        </Link>
-                        <div className="price-tag">
-                          <i className="ti ti-circle-filled"></i>
-                          <span className="text-sm fw-7">542</span>
-                        </div>
-                      </div>
-                      <div className="content">
-                        <div className="content-inner">
-                          <p className="text-md fw-6 mt-8">
-                            <span>[ 06 ]</span>
-                            주요 프로젝트
-                          </p>
-                          <h3 className="fw-7 mt-16">
-                            <Link href="/games/1">Fortnite</Link>
-                          </h3>
-                        </div>
-                        <div className="cta mt-50 text-end">
-                          <Link href="/games/1" className="fw-7">
-                            자세히 보기 <i className="ti ti-plus"></i>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide className="swiper-slide">
-                    <div className="feature-slider__single">
-                      <div className="thumb">
-                        <Link href="/games/1">
-                          <Image src={three} alt="Image" />
-                        </Link>
-                        <div className="price-tag">
-                          <i className="ti ti-circle-filled"></i>
-                          <span className="text-sm fw-7">42</span>
-                        </div>
-                      </div>
-                      <div className="content">
-                        <div className="content-inner">
-                          <p className="text-md fw-6 mt-8">
-                            <span>[ 07 ]</span>
-                            주요 프로젝트
-                          </p>
-                          <h3 className="fw-7 mt-16">
-                            <Link href="/games/1">Bounty</Link>
-                          </h3>
-                        </div>
-                        <div className="cta mt-50 text-end">
-                          <Link href="/games/1" className="fw-7">
-                            자세히 보기 <i className="ti ti-plus"></i>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide className="swiper-slide">
-                    <div className="feature-slider__single">
-                      <div className="thumb">
-                        <Link href="/games/1">
-                          <Image src={four} alt="Image" />
-                        </Link>
-                        <div className="price-tag">
-                          <i className="ti ti-circle-filled"></i>
-                          <span className="text-sm fw-7">100</span>
-                        </div>
-                      </div>
-                      <div className="content">
-                        <div className="content-inner">
-                          <p className="text-md fw-6 mt-8">
-                            <span>[ 08 ]</span>
-                            주요 프로젝트
-                          </p>
-                          <h3 className="fw-7 mt-16">
-                            <Link href="/games/1">Turbo</Link>
-                          </h3>
-                        </div>
-                        <div className="cta mt-50 text-end">
-                          <Link href="/games/1" className="fw-7">
-                            자세히 보기 <i className="ti ti-plus"></i>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </SwiperSlide>
+                    </SwiperSlide>
+                  ))}
                 </Swiper>
                 <div className="slider-footer mt-60">
                   <div className="slider-navigation">

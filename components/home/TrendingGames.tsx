@@ -5,122 +5,64 @@ import afour from "@/public/images/avatar/four.png";
 import aone from "@/public/images/avatar/one.png";
 import asix from "@/public/images/avatar/six.png";
 import fire from "@/public/images/fire.png";
-import tfive from "@/public/images/games/trending/five.png";
-import tfour from "@/public/images/games/trending/four.png";
-import tone from "@/public/images/games/trending/one.png";
-import tsix from "@/public/images/games/trending/six.png";
-import tthree from "@/public/images/games/trending/three.png";
-import ttwo from "@/public/images/games/trending/two.png";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Image from "next/image";
 import Link from "next/link";
 import Tilt from "react-parallax-tilt";
 
-gsap.registerPlugin(ScrollTrigger);
+// 6개 이미지 생성
+const generateTrendingGames = () => {
+  const games = [];
+  const avatars = [avatar, aone, afive, afour, asix];
+  const names = ["David Malan", "Est Howard", "Ann Black", "Ar Mccoy", "Wade Warren", "Court Henry"];
+  const titles = ["Bit Blossom", "Techno Tots", "Crypto Cutie", "Crypto Collectibles", "Byte Blossom", "Digital Dolly"];
 
-const trendingGames = [
-  {
-    id: 1,
-    image: tone,
-    title: "Bit Blossom",
-    number: "#123",
-    creator: {
-      name: "David Malan",
-      avatar: avatar,
-    },
-    price: "1.015",
-    likes: 11,
-  },
-  {
-    id: 2,
-    image: ttwo,
-    title: "Techno Tots",
-    number: "#322",
-    creator: {
-      name: "Est Howard",
-      avatar: aone,
-    },
-    price: "2.015",
-    likes: 18,
-  },
-  {
-    id: 3,
-    image: tthree,
-    title: "Crypto Cutie",
-    number: "#326",
-    creator: {
-      name: "Ann Black",
-      avatar: afive,
-    },
-    price: "3.015",
-    likes: 11,
-  },
-  {
-    id: 4,
-    image: tfour,
-    title: "Crypto Collectibles",
-    number: "#127",
-    creator: {
-      name: "Ar Mccoy",
-      avatar: afour,
-    },
-    price: "1.015",
-    likes: 27,
-  },
-  {
-    id: 5,
-    image: tfive,
-    title: "Byte Blossom",
-    number: "#143",
-    creator: {
-      name: "Wade Warren",
-      avatar: asix,
-    },
-    price: "5.015",
-    likes: 4,
-  },
-  {
-    id: 6,
-    image: tsix,
-    title: "Digital Dolly",
-    number: "#543",
-    creator: {
-      name: "Court Henry",
-      avatar: aone,
-    },
-    price: "4.015",
-    likes: 31,
-  },
-];
+  for (let i = 1; i <= 6; i++) {
+    const imageNum = String(i).padStart(2, '0');
+    games.push({
+      id: i,
+      imagePath: `/optimized/${imageNum}.webp`,
+      title: titles[i - 1],
+      number: `#${100 + i}`,
+      creator: {
+        name: names[i - 1],
+        avatar: avatars[i % avatars.length],
+      },
+      price: (1 + (i % 10) * 0.5).toFixed(3),
+      likes: (i % 50) + 1,
+    });
+  }
+  return games;
+};
+
+const trendingGames = generateTrendingGames();
 
 const TrendingGames = () => {
-  useGSAP(() => {
-    const elements = document.querySelectorAll(".appear-down");
-    elements.forEach((element) => {
-      gsap.fromTo(
-        element,
-        {
-          scale: 0.8,
-          opacity: 0,
-        },
-        {
-          scale: 1,
-          opacity: 1,
-          duration: 1,
-          stagger: 0.2,
-          scrollTrigger: {
-            trigger: element,
-            scrub: 1,
-            start: "top bottom",
-            end: "top center",
-            markers: false,
-          },
-        },
-      );
-    });
-  });
+  // GSAP 애니메이션 비활성화 - 성능 최적화
+  // useGSAP(() => {
+  //   const elements = document.querySelectorAll(".appear-down");
+  //   elements.forEach((element) => {
+  //     gsap.fromTo(
+  //       element,
+  //       {
+  //         scale: 0.8,
+  //         opacity: 0,
+  //       },
+  //       {
+  //         scale: 1,
+  //         opacity: 1,
+  //         duration: 1,
+  //         stagger: 0.2,
+  //         scrollTrigger: {
+  //           trigger: element,
+  //           scrub: 1,
+  //           start: "top bottom",
+  //           end: "top center",
+  //           markers: false,
+  //         },
+  //       },
+  //     );
+  //   });
+  // });
   return (
     <section className="trending pt-120 fade-wrapper">
       <div className="container-fluid">
@@ -129,6 +71,7 @@ const TrendingGames = () => {
             <div className="text-center text-lg-start">
               <h2 className="fw-6 title-animation mt-8">
                 인기 포트폴리오 <Image src={fire} alt="Image" />{" "}
+                <span style={{fontSize: '0.5em', color: '#FFB800'}}>({trendingGames.length}개)</span>
               </h2>
             </div>
           </div>
@@ -153,7 +96,14 @@ const TrendingGames = () => {
                   <Tilt tiltMaxAngleX={5} tiltMaxAngleY={5} className="trending__single van-tilt">
                     <div className="thumb ">
                       <Link href="/shop/1">
-                        <Image src={game.image} alt="Image" />
+                        <Image
+                          src={game.imagePath}
+                          alt="Image"
+                          width={400}
+                          height={400}
+                          loading="lazy"
+                          sizes="(max-width: 768px) 50vw, 400px"
+                        />
                       </Link>
                     </div>
                     <div className="content-wrapper">

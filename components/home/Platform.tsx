@@ -1,7 +1,4 @@
 "use client";
-import one from "@/public/images/platform/one.png";
-import three from "@/public/images/platform/three.png";
-import two from "@/public/images/platform/two.png";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -10,32 +7,33 @@ import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const platformFeatures = [
-  {
-    id: "01",
-    image: one,
-    title: "콘텐츠 제작 및 발행",
-    description: "브랜드의 가치를 전달하는 창의적인 콘텐츠를 기획하고 제작합니다. 타겟 고객에게 효과적으로 메시지를 전달하는 맞춤형 솔루션을 제공합니다.",
-    buttonText: "시작하기",
-    buttonLink: "/sign-up",
-  },
-  {
-    id: "02",
-    image: two,
-    title: "프로젝트 관리 및 운영",
-    description: "체계적인 프로젝트 관리로 성공적인 결과물을 만들어냅니다. 기획부터 실행까지 모든 과정을 투명하게 관리하고 최적의 성과를 도출합니다.",
-    buttonText: "문의하기",
-    buttonLink: "/sign-up",
-  },
-  {
-    id: "03",
-    image: three,
-    title: "브랜딩 및 마케팅",
-    description: "데이터 기반의 전략적 마케팅으로 브랜드 가치를 극대화합니다. 창의적인 아이디어와 실행력으로 시장에서의 경쟁력을 강화합니다.",
-    buttonText: "상담하기",
-    buttonLink: "/sign-up",
-  },
-];
+// Platform 카드 24개 생성
+const generatePlatformFeatures = () => {
+  const features = [];
+  const titles = ["콘텐츠 제작 및 발행", "프로젝트 관리 및 운영", "브랜딩 및 마케팅"];
+  const descriptions = [
+    "브랜드의 가치를 전달하는 창의적인 콘텐츠를 기획하고 제작합니다.",
+    "체계적인 프로젝트 관리로 성공적인 결과물을 만들어냅니다.",
+    "데이터 기반의 전략적 마케팅으로 브랜드 가치를 극대화합니다.",
+  ];
+  const buttonTexts = ["시작하기", "문의하기", "상담하기"];
+
+  for (let i = 1; i <= 24; i++) {
+    const imageNum = String(i % 26).padStart(2, '0');
+    const idx = (i - 1) % 3;
+    features.push({
+      id: String(i).padStart(2, '0'),
+      imagePath: `/optimized/${imageNum}.webp`,
+      title: titles[idx],
+      description: descriptions[idx],
+      buttonText: buttonTexts[idx],
+      buttonLink: "/sign-up",
+    });
+  }
+  return features;
+};
+
+const platformFeatures = generatePlatformFeatures();
 
 const Platform = () => {
   useGSAP(() => {
@@ -96,7 +94,7 @@ const Platform = () => {
                   </div>
                 </div>
                 <div className="thumb">
-                  <Image src={feature.image} alt="Image" />
+                  <Image src={feature.imagePath} alt="Image" width={400} height={300} />
                 </div>
                 <div className="content mt-40">
                   <h4 className="fw-6 mt-8">{feature.title}</h4>

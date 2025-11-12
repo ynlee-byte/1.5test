@@ -1,37 +1,16 @@
 "use client";
 
-import useCountdown from "@/utils/countDown";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-
-// Import images
-import avatar from "@/public/images/avatar/avatar.png";
-import five from "@/public/images/avatar/five.png";
-import four from "@/public/images/avatar/four.png";
-import six from "@/public/images/avatar/six.png";
-import cartoon from "@/public/images/count/cartoon.png";
-import entry from "@/public/images/count/entry.png";
-import plane from "@/public/images/count/plane.png";
-import thumb from "@/public/images/count/thumb.png";
-import spinner from "@/public/images/spinner.png";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
-// Dynamically import CountUp component
 const CountUp = dynamic(() => import("react-countup"), { ssr: false });
 
 const Countdown = () => {
-  const [isClient, setIsClient] = useState(false);
-  const targetDate = new Date("2032-10-20T00:00:00");
-  const timeLeft = useCountdown(targetDate);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
   useGSAP(() => {
     const device_width = window.innerWidth;
     if (device_width >= 768) {
@@ -44,165 +23,159 @@ const Countdown = () => {
           pin: false,
         },
       });
-      tl.to(".plane img", {
-        x: "60px",
-        opacity: 0.4,
-        duration: 3,
+
+      // 왼쪽 이미지 - 위로 이동
+      gsap.to(".weapon-image", {
+        y: -80,
+        scrollTrigger: {
+          trigger: ".countdown",
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 1,
+        },
       });
-      tl.to(".cartoon img", {
-        y: "100px",
-        opacity: 0.4,
-        duration: 3,
+
+      // 오른쪽 이미지 - 아래로 이동
+      gsap.to(".character-image", {
+        y: 80,
+        scrollTrigger: {
+          trigger: ".countdown",
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 1,
+        },
       });
     }
   });
+
   return (
     <section className="countdown pt-120 pb-120">
       <div className="container-fluid">
+        {/* 나의 카드 섹션 */}
         <div className="row justify-content-center">
-          <div className="col-12 col-xl-9">
-            <div className="count-inner fade-top">
-              <div className="count-wrapper">
-                <div className="count-content">
-                  <h3 className="title-animation fw-7 mt-8">Join The Adventure</h3>
-                  {isClient && (
-                    <div className="count-items-wrapper mt-24">
-                      <div className="count-single">
-                        <div className="count-single-inner">
-                          <h4 className="fw-6 not-cursor day">{timeLeft.days}</h4>
-                        </div>
-                        <p className="text-xl fw-6 mt-5">Days</p>
-                      </div>
-                      <div className="count-single">
-                        <div className="count-single-inner">
-                          <h4 className="fw-6 not-cursor hour">{timeLeft.hours}</h4>
-                        </div>
-                        <p className="text-xl fw-6 mt-5">Hours</p>
-                      </div>
-                      <div className="count-single">
-                        <div className="count-single-inner">
-                          <h4 className="fw-6 not-cursor minute">{timeLeft.minutes}</h4>
-                        </div>
-                        <p className="text-xl fw-6 mt-5">Minutes</p>
-                      </div>
-                      <div className="count-single">
-                        <div className="count-single-inner">
-                          <h4 className="fw-6 not-cursor second">{timeLeft.seconds}</h4>
-                        </div>
-                        <p className="text-xl fw-6 mt-5">Seconds</p>
-                      </div>
-                    </div>
-                  )}
-                  <div className="count-footer mt-60">
-                    <div className="join-users">
-                      <div className="single-user">
-                        <Image src={avatar} alt="Image" />
-                        <svg viewBox="-3 -3 106 106" xmlns="http://www.w3.org/2000/svg" fill="none" className="hexagon-border">
-                          <polygon points="50 0, 100 25, 100 75, 50 100, 0 75, 0 25" />
-                        </svg>
-                      </div>
-                      <div className="single-user">
-                        <Image src={five} alt="Image" />
-                        <svg viewBox="-3 -3 106 106" xmlns="http://www.w3.org/2000/svg" fill="none" className="hexagon-border">
-                          <polygon points="50 0, 100 25, 100 75, 50 100, 0 75, 0 25" />
-                        </svg>
-                      </div>
-                      <div className="single-user">
-                        <Image src={four} alt="Image" />
-                        <svg viewBox="-3 -3 106 106" xmlns="http://www.w3.org/2000/svg" fill="none" className="hexagon-border">
-                          <polygon points="50 0, 100 25, 100 75, 50 100, 0 75, 0 25" />
-                        </svg>
-                      </div>
-                      <div className="single-user">
-                        <Image src={six} alt="Image" />
-                        <svg viewBox="-3 -3 106 106" xmlns="http://www.w3.org/2000/svg" fill="none" className="hexagon-border">
-                          <polygon points="50 0, 100 25, 100 75, 50 100, 0 75, 0 25" />
-                        </svg>
-                      </div>
-                      <div className="single-user">
-                        <p className="fw-7 text-black text-md">25+</p>
-                        <svg viewBox="-3 -3 106 106" xmlns="http://www.w3.org/2000/svg" fill="none" className="hexagon-border">
-                          <polygon points="50 0, 100 25, 100 75, 50 100, 0 75, 0 25" />
-                        </svg>
-                      </div>
-                    </div>
-                    <p className="text-md fw-6">
-                      <span className="quaternary-text fw-8">540</span>
-                      People Joined
-                    </p>
-                  </div>
-                </div>
-                <div className="count-cta text-center">
-                  <div className="count-cta-thumb">
-                    <Image src={entry} alt="Image" />
-                  </div>
-                  <div className="count-cta-content mt-24">
-                    <p className="text-md fw-6 text-alter text-uppercase">ENTRY FEE</p>
-                    <h4 className="fw-8 primary-text mt-12">$10.0</h4>
-                  </div>
-                  <div className="btn-wrapper mt-35">
-                    <Link href="/sign-up" className="btn--secondary">
-                      Join Now{" "}
-                    </Link>
-                    <svg viewBox="0 0 100 102" xmlns="http://www.w3.org/2000/svg" fill="none" preserveAspectRatio="none" className="shape">
-                      <path d="M0 1  L100 1  L100 55 L80 101 L0 101 Z" />
-                    </svg>
-                  </div>
-                </div>
-                <div className="count-stroke">
-                  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none" preserveAspectRatio="none">
-                    <path d="M0 5 L10 5 L15 0 L94.9 0 L99.9 15 L99.9 100 L85 100 L80 95 L5 95 L0 85 L0 5 Z" vectorEffect="non-scaling-stroke" />
-                  </svg>
+          <div className="col-12 text-center mb-60">
+            <h2 className="fw-6 title-animation">
+              <span className="quaternary-text">🟢</span> 나의 카드 <span className="quaternary-text">🟢</span>
+            </h2>
+          </div>
+        </div>
+
+        <div className="row justify-content-center my-cards-row">
+          <div className="col-auto">
+            <div className="my-card-single card-purple">
+              <div className="card-icon-wrapper">
+                <div className="card-icon-circle purple">
+                  <Image src="/iconChat.png" alt="Chat Icon" width={48} height={48} />
                 </div>
               </div>
-              <div className="count-thumb d-none d-lg-block">
-                <Image src={thumb} alt="Image" />
+              <div className="badge-group mt-16">
+                <span className="day-badge">월, 화, 수</span>
+              </div>
+              <h4 className="fw-7 mt-12">지난주 리뷰</h4>
+              <div className="btn-wrapper mt-35">
+                <Link href="/profile" className="btn--secondary">
+                  리뷰 카드 작성하기
+                </Link>
+                <svg viewBox="0 0 100 102" xmlns="http://www.w3.org/2000/svg" fill="none" preserveAspectRatio="none" className="shape">
+                  <path d="M0 1  L100 1  L100 55 L80 101 L0 101 Z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div className="col-auto">
+            <div className="my-card-single card-green highlight">
+              <div className="card-icon-wrapper">
+                <div className="card-icon-circle green">
+                  <Image src="/bigiconScoop.png" alt="Scoop Icon" width={48} height={48} />
+                </div>
+              </div>
+              <div className="badge-group mt-16">
+                <span className="day-badge">목, 금</span>
+              </div>
+              <h4 className="fw-7 mt-12">지난주 판정</h4>
+              <div className="btn-wrapper mt-35">
+                <Link href="/profile" className="btn--secondary">
+                  판정 카드 작성하기
+                </Link>
+                <svg viewBox="0 0 100 102" xmlns="http://www.w3.org/2000/svg" fill="none" preserveAspectRatio="none" className="shape">
+                  <path d="M0 1  L100 1  L100 55 L80 101 L0 101 Z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div className="col-auto">
+            <div className="my-card-single card-pink">
+              <div className="card-icon-wrapper">
+                <div className="card-icon-circle pink">
+                  <Image src="/iconHeart.png" alt="Heart Icon" width={48} height={48} />
+                </div>
+              </div>
+              <div className="badge-group mt-16">
+                <span className="day-badge">목, 금, 토</span>
+              </div>
+              <h4 className="fw-7 mt-12">이번주 목표</h4>
+              <div className="btn-wrapper mt-35">
+                <Link href="/profile" className="btn--secondary">
+                  목표 카드 작성하기
+                </Link>
+                <svg viewBox="0 0 100 102" xmlns="http://www.w3.org/2000/svg" fill="none" preserveAspectRatio="none" className="shape">
+                  <path d="M0 1  L100 1  L100 55 L80 101 L0 101 Z" />
+                </svg>
               </div>
             </div>
           </div>
         </div>
-        <div className="row justify-content-center">
+
+        {/* 통계 섹션 */}
+        <div className="row justify-content-center position-relative">
+          {/* 왼쪽 무기 이미지 419*311 */}
+          <div className="stats-left-image">
+            <div className="weapon-image" style={{ position: 'relative', width: '419px', height: '311px' }}>
+              <Image src="/optimized/05.webp" alt="Weapon" fill style={{ objectFit: 'cover' }} />
+            </div>
+          </div>
+
+          {/* 오른쪽 캐릭터 이미지 338*400 */}
+          <div className="stats-right-image">
+            <div className="character-image" style={{ position: 'relative', width: '338px', height: '400px' }}>
+              <Image src="/optimized/12.webp" alt="Character" fill style={{ objectFit: 'cover' }} />
+            </div>
+          </div>
+
           <div className="col-12 col-sm-11 col-md-9 col-lg-7 col-xl-7">
             <div className="counter-wrapper pt-120">
               <div className="counter__single">
                 <h2 className="title-lg fw-8 mt-8">
                   <span className="odometer">
-                    <CountUp end={126} enableScrollSpy={true} />
+                    <CountUp end={0} enableScrollSpy={true} />
                   </span>
                   <span className="prefix text-uppercase"> +</span>
                 </h2>
-                <p className="text-xxl primary-text fw-6 text-uppercase mt-6">Games</p>
+                <p className="text-xxl fw-6 text-uppercase mt-6" style={{color: "#FFB800"}}>Games</p>
               </div>
               <div className="counter__single">
                 <h2 className="title-lg fw-8 mt-8">
                   <span className="odometer">
-                    <CountUp end={39} enableScrollSpy={true} />
+                    <CountUp end={0} enableScrollSpy={true} />
                   </span>
                   <span className="prefix text-uppercase"> k+</span>
                 </h2>
-                <p className="text-xxl primary-text fw-6 text-uppercase mt-6">Players</p>
+                <p className="text-xxl fw-6 text-uppercase mt-6" style={{color: "#FFB800"}}>Players</p>
               </div>
               <div className="counter__single">
                 <h2 className="title-lg fw-8 mt-8">
                   <span className="odometer">
-                    <CountUp end={10} enableScrollSpy={true} />
+                    <CountUp end={0} enableScrollSpy={true} />
                   </span>
                   <span className="prefix text-uppercase"> k+</span>
                 </h2>
-                <p className="text-xxl primary-text fw-6 text-uppercase mt-6">Champions</p>
+                <p className="text-xxl fw-6 text-uppercase mt-6" style={{color: "#FFB800"}}>Champions</p>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div className="plane d-none d-lg-block fade-right">
-        <Image src={plane} alt="Image" />
-      </div>
-      <div className="spinner d-none d-lg-block">
-        <Image src={spinner} alt="Image" />
-      </div>
-      <div className="cartoon d-none d-lg-block fade-left">
-        <Image src={cartoon} alt="Image" />
       </div>
     </section>
   );

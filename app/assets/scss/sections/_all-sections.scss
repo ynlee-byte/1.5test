@@ -9,11 +9,11 @@
     z-index: 1;
     overflow: hidden;
     border-radius: 20px;
-    border: 2px solid transparent;
+    border: 1px solid var(--green-border);
     transition: var(--transition);
 
     &:hover {
-      border-color: var(--primary-color);
+      border-color: var(--green-border);
       img {
         transform: scale(1.2);
       }
@@ -466,17 +466,56 @@
     }
   }
 
+  .stats-left-image {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 300px;
+    height: 400px;
+    z-index: 0;
+    pointer-events: none;
+
+    .weapon-image {
+      width: 100%;
+      height: 100%;
+      background: url("/images/count/plane.png") no-repeat center;
+      background-size: contain;
+      transform: rotate(-15deg);
+      opacity: 0.8;
+    }
+  }
+
+  .stats-right-image {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 400px;
+    height: 500px;
+    z-index: 0;
+    pointer-events: none;
+
+    .character-image {
+      width: 100%;
+      height: 100%;
+      background: url("/images/count/cartoon.png") no-repeat center;
+      background-size: contain;
+      opacity: 0.9;
+    }
+  }
+
   .counter-wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 16px;
     flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
   }
 
   .counter__single {
     padding-left: 32px;
-    border-left: 1px solid var(--white);
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
     position: relative;
     &::before {
       content: "";
@@ -485,7 +524,7 @@
       left: -2px;
       width: 3px;
       height: 64px;
-      background-color: var(--primary-color);
+      background: linear-gradient(180deg, var(--green-border) 0%, rgba(33, 231, 134, 0.3) 100%);
     }
 
     h2 {
@@ -532,6 +571,264 @@
       max-width: 18vw;
     }
   }
+
+  // 나의 카드 row 스타일
+  .my-cards-row {
+    gap: 20px;
+  }
+
+  // 나의 카드 스타일
+  .my-card-single {
+    border: none;
+    border-radius: 0;
+    padding: 40px 32px;
+    text-align: center;
+    transition: var(--transition);
+    width: 330px;
+    height: 341px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #141B22;
+    background-image: url("/border small.png");
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+    background-position: top left;
+
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 40px rgba(33, 231, 134, 0.3);
+    }
+
+    &.card-purple {
+      .badge-group {
+        position: absolute;
+        bottom: 155px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: center;
+        z-index: 10;
+
+        .day-badge {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          padding: 6px 16px;
+          border: 1px solid #ffffff;
+          border-radius: 50px;
+          color: #ffffff;
+          font-size: 12px;
+          font-weight: 600;
+          background: transparent;
+        }
+      }
+
+      h4 {
+        position: absolute;
+        bottom: 110px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        text-align: center;
+        z-index: 10;
+      }
+
+      .btn-wrapper {
+        position: absolute;
+        bottom: 35px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+
+        .btn--secondary {
+          border: none;
+          outline: none;
+          white-space: nowrap;
+        }
+
+        svg.shape {
+          display: none;
+        }
+      }
+
+      .card-icon-circle.purple {
+        background: transparent;
+        transform: translate(15px, 8px);
+
+        img {
+          width: 115px;
+          height: 115px;
+        }
+      }
+    }
+
+    &.card-green {
+      .badge-group {
+        position: absolute;
+        bottom: 155px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: center;
+        z-index: 10;
+
+        .day-badge {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          padding: 6px 16px;
+          border: 1px solid #ffffff;
+          border-radius: 50px;
+          color: #ffffff;
+          font-size: 12px;
+          font-weight: 600;
+          background: transparent;
+        }
+      }
+
+      h4 {
+        position: absolute;
+        bottom: 110px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        text-align: center;
+        z-index: 10;
+      }
+
+      .btn-wrapper {
+        position: absolute;
+        bottom: 35px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+
+        .btn--secondary {
+          border: none;
+          outline: none;
+          white-space: nowrap;
+        }
+
+        svg.shape {
+          display: none;
+        }
+      }
+
+      .card-icon-circle.green {
+        background: transparent;
+        transform: translateY(15px);
+
+        img {
+          width: 80px;
+          height: 80px;
+        }
+      }
+    }
+
+    &.card-pink {
+      .badge-group {
+        position: absolute;
+        bottom: 155px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: center;
+        z-index: 10;
+
+        .day-badge {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          padding: 6px 16px;
+          border: 1px solid #ffffff;
+          border-radius: 50px;
+          color: #ffffff;
+          font-size: 12px;
+          font-weight: 600;
+          background: transparent;
+        }
+      }
+
+      h4 {
+        position: absolute;
+        bottom: 110px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        text-align: center;
+        z-index: 10;
+      }
+
+      .btn-wrapper {
+        position: absolute;
+        bottom: 35px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+
+        .btn--secondary {
+          border: none;
+          outline: none;
+          white-space: nowrap;
+        }
+
+        svg.shape {
+          display: none;
+        }
+      }
+
+      .card-icon-circle.pink {
+        background: transparent;
+        transform: translateY(0px);
+
+        img {
+          width: 104px;
+          height: 104px;
+        }
+      }
+    }
+
+    &.highlight {
+      // 가운데 카드도 동일한 배경색 적용
+    }
+
+    .card-icon-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+      transform: translateY(-15px);
+    }
+
+    .card-icon-circle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: auto;
+      height: auto;
+      overflow: hidden;
+
+      img {
+        width: 96px;
+        height: 96px;
+        display: block;
+        object-fit: contain;
+      }
+    }
+
+    h4 {
+      color: var(--white);
+      font-family: 'Pretendard', sans-serif;
+      font-size: 24px;
+    }
+
+    p {
+      color: #ffffff90;
+      line-height: 1.6;
+    }
+  }
 }
 
 .countdown-two {
@@ -544,12 +841,12 @@
 .streamer {
   .streamer-slider__single {
     background-color: var(--senary-color);
-    border: 1px solid #505d6a;
+    border: 1px solid var(--green-border);
     border-radius: 12px;
     transition: var(--transition);
     overflow: hidden;
     &:hover {
-      border-color: var(--primary-color);
+      border-color: var(--green-border);
       box-shadow: 0px 0px 34px 0px rgba(242, 195, 53, 0.2);
 
       h5 {
@@ -875,6 +1172,233 @@
   }
 }
 
+// Gaming Solutions section styles
+.gaming-solutions {
+  .gaming-solutions-wrapper {
+    position: relative;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .gaming-slide {
+    position: relative;
+    width: 100%;
+  }
+
+  .gaming-solutions-slider {
+    .swiper-slide {
+      width: 462px !important;
+      opacity: 0.5;
+      transition: all 0.3s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-slide-active {
+      width: 927px !important;
+      opacity: 1;
+      z-index: 10;
+    }
+  }
+
+  .gaming-screen {
+    position: relative;
+    background: #3B4236;
+    border-radius: 0px;
+    border: none;
+    min-height: 500px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(33, 231, 134, 0.1) 0%, transparent 70%);
+    }
+  }
+
+  .screen-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.3) 100%);
+    z-index: 1;
+  }
+
+  .game-icons {
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    z-index: 2;
+
+    .icon-item {
+      width: 48px;
+      height: 48px;
+      background: rgba(33, 231, 134, 0.15);
+      border: 1px solid var(--green-border);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      cursor: pointer;
+      transition: var(--transition);
+
+      &:hover {
+        background: rgba(33, 231, 134, 0.3);
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .player-profile-box {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #111410;
+    border: 1px solid var(--green-border);
+    border-radius: 0px;
+    padding: 24px 32px;
+    min-width: 400px;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    opacity: 1;
+    visibility: visible;
+
+    .profile-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+
+      .profile-avatar {
+        position: relative;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: 2px solid var(--green-border);
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .online-badge {
+          position: absolute;
+          bottom: 2px;
+          right: 2px;
+          width: 14px;
+          height: 14px;
+          background: var(--green-border);
+          border-radius: 50%;
+          border: 2px solid var(--senary-color);
+        }
+      }
+
+      .profile-info {
+        h4 {
+          margin: 0;
+          font-size: 18px;
+          color: var(--white);
+        }
+
+        .level-badge {
+          margin: 4px 0 0;
+          font-size: 12px;
+          color: var(--green-border);
+          font-weight: 600;
+        }
+      }
+    }
+
+    .profile-stats {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+
+      .stat-item {
+        text-align: center;
+        flex: 1;
+
+        .stat-value {
+          display: block;
+          font-size: 24px;
+          font-weight: 700;
+          color: var(--white);
+        }
+
+        .stat-label {
+          display: block;
+          font-size: 11px;
+          color: #ffffff70;
+          margin-top: 4px;
+        }
+      }
+
+      .stat-divider {
+        width: 1px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+
+  .gaming-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: #111410;
+    border: none;
+    border-radius: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    z-index: 100;
+
+    i {
+      font-size: 28px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #ADFF00 0%, #CCFF00 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    &:hover {
+      background: #1a1d18;
+      i {
+        background: linear-gradient(135deg, #CCFF00 0%, #ADFF00 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+    }
+
+    &.gaming-prev {
+      left: -25px;
+    }
+
+    &.gaming-next {
+      right: -25px;
+    }
+  }
+}
+
 // 5.07 platform section styles start
 .platform {
   .platform-single {
@@ -886,6 +1410,7 @@
     border-radius: 24px;
     height: max-content;
     position: relative;
+    border: 1px solid var(--green-border);
   }
 
   .tag {
@@ -8046,6 +8571,106 @@ select {
   width: 100%;
 }
 
-/* ==== 
+// Template 2 Hero Card Styles
+.hero-content {
+  .card-area {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+
+    h3 {
+      font-size: 24px;
+      line-height: 120%;
+      margin-top: 30px;
+      margin-bottom: 20px;
+
+      @media (max-width: 991px) {
+        font-size: 20px;
+      }
+
+      @media (max-width: 575px) {
+        font-size: 18px;
+      }
+    }
+
+    .card-items {
+      margin-top: 0;
+      margin-bottom: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .card-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+
+      .card-img-area {
+        max-width: 72px;
+        max-height: 72px;
+        width: 72px;
+        height: 72px;
+        border: 2px solid rgb(36, 40, 41);
+        flex-shrink: 0;
+
+        @media (max-width: 575px) {
+          max-width: 60px;
+          max-height: 60px;
+          width: 60px;
+          height: 60px;
+        }
+      }
+
+      .card-info {
+        flex: 1;
+        min-width: 0;
+      }
+    }
+
+    .hr-line {
+      height: 1px;
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      width: 100%;
+      margin: 0;
+    }
+
+    .card-title {
+      color: #fff;
+      font-size: 20px;
+      line-height: 130%;
+
+      @media (max-width: 991px) {
+        font-size: 18px;
+      }
+
+      @media (max-width: 575px) {
+        font-size: 16px;
+      }
+    }
+
+    .card-text {
+      color: #21E786;
+    }
+  }
+}
+
+.active-player-list {
+  .player-lists {
+    li {
+      width: 48px;
+      height: 48px;
+      border: 3px solid rgb(36, 40, 41);
+
+      &:last-child {
+        background: rgb(246, 87, 30);
+        border-color: rgb(255, 255, 255);
+      }
+    }
+  }
+}
+
+/* ====
  --------- (5.0) all sections styles end ---------
  ==== */
